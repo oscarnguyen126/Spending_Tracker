@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="main_menu" name="Main budget"/>
+    <menuitem id="sub_menu" name="My Wallet"
+              parent="control_spending_app.main_menu"
+              action="control_spending_app.budget_action"
+              sequence="5"/>
+    <menuitem id="budget_submenu" name="Spending Tracker"
+              parent="control_spending_app.main_menu"
+              sequence="10"/>
+    <menuitem id="income_menu" name="Income"
+              parent='control_spending_app.budget_submenu'
+              action="control_spending_app.income_action"
+              sequence="5"/>
+    <menuitem id="outcome_menu" name="Outcome"
+              parent='control_spending_app.budget_submenu'
+              action="control_spending_app.outcome_action"
+              sequence="5"/>
+    <menuitem id="category_menu" name="Categories"
+              parent='control_spending_app.budget_submenu'
+              action="control_spending_app.category_action"
+              sequence="10"/>
+</odoo>

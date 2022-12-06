@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <data>
+        <record id="outcome_form" model="ir.ui.view">
+            <field name="name">h.outcome.form</field>
+            <field name="model">h.outcome</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <widget name="attach_document" string="Attach Receipt" action="attach_document" highlight="1"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                            <group>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="amount"/>
+                                <field name="category" required="1"/>
+                                <field name="outcome_date"/>
+                                <field name="budget_id" required="1"/>
+                            </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="outcome_tree" model="ir.ui.view">
+            <field name="name">h.outcome.tree</field>
+            <field name="model">h.outcome</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount" widget="monetary"/>
+                    <field name="category"/>
+                    <field name="outcome_date"/>
+                    <field name="budget_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="outcome_search" model="ir.ui.view">
+            <field name="name">h.outcome.search</field>
+            <field name="model">h.outcome</field>
+            <field name="arch" type="xml">
+                <search>
+                  <field name="name"/>
+                  <field name="amount" widget="monetary"/>
+                  <field name="category"/>
+                  <field name="outcome_date"/>
+                  <field name="budget_id"/>
+                  <group expand="0" string="Group By">
+                        <filter string="Name" name="group_by_name" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Category" name="group_by_category" domain="[]" context="{'group_by':'category'}"/>
+                        <filter string="Time" name="group_by_time" domain="[]" context="{'group_by':'outcome_date'}"/>
+                  </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="outcome_graph" model="ir.ui.view">
+            <field name="name">h.outcome.graph</field>
+            <field name="model">h.outcome</field>
+            <field name="arch" type="xml">
+                <graph type="pie">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount" widget="monetary" type="measure"/>
+                    <field name="category"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="outcome_action" model="ir.actions.act_window">
+            <field name="name">Outcome</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">h.outcome</field>
+            <field name="view_mode">tree,form,graph</field>
+        </record>
+
+
+    </data>
+</odoo>

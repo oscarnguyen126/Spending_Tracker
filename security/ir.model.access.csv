@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_budget,access_h_budget,model_h_budget,,1,1,1,1
+access_income,access_h_income,model_h_income,,1,1,1,1
+access_outcome,access_h_outcome,model_h_outcome,,1,1,1,1
+access_category,access_h_category,model_h_category,,1,1,1,1
